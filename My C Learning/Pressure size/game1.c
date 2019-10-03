@@ -5,40 +5,40 @@
 #include <string.h>
 
 //函数声明
-int rand10();						              	//产生10以内的随机数
-int  dropDown();					            	//下注函数
-void showEnding();				          		//输出开奖结果
-void updateRecords();				          	//更新记录的开奖结果
-void stories();							            //显示投注记录
-int running(int,int);			          		//跑起来 主循环
-void endingUpdate(int);		        			//更新开奖结果并写入变量
-int wizards();						            	//向导函数
-int showTitle();					            	//显示软件欢迎信息菜单
-int  choice();						            	//执行主菜单跳转
-void viewStatus();				          		//显示当前状态：参数，金额等等
-void pressKey();					            	//实现按任意键继续
+int rand10();							//产生10以内的随机数
+int  dropDown();						//下注函数
+void showEnding();						//输出开奖结果
+void updateRecords();					//更新记录的开奖结果
+void stories();							//显示投注记录
+int running(int,int);					//跑起来 主循环
+void endingUpdate(int);					//更新开奖结果并写入变量
+int wizards();							//向导函数
+int showTitle();						//显示软件欢迎信息菜单
+int  choice();							//执行主菜单跳转
+void viewStatus();						//显示当前状态：参数，金额等等
+void pressKey();						//实现按任意键继续
 
 //全局变量声明
-int stepOne=0;						            	//每一局结束后是否暂停：0自动，1手动
-int enjoys=0;						              	//当前期数
-int totalCounts=10;				          		//总共玩多少期
-int sleeps=5;						              	//开奖时间间隔秒：初始化0
-int selfRand=0;						            	//当前开奖号码
-double victoryRate=0;			          		//胜率百分比：初始化0
-int totalVictorys=0;			          		//累胜局数：初始化0
-int selfBSStatus=0;				          		//压大小状态：0初始化，1大，2小
-int selfSDStatus=0;						          //压单双状态：0初始化，1单，2双
-int myBS=0;							              	//我压的大小：0初始化，1大，2小
-int mySD=0;								              //我压的单双：0初始化，1单，2双
+int stepOne=0;							//每一局结束后是否暂停：0自动，1手动
+int enjoys=0;							//当前期数
+int totalCounts=10;						//总共玩多少期
+int sleeps=5;							//开奖时间间隔秒：初始化0
+int selfRand=0;							//当前开奖号码
+double victoryRate=0;					//胜率百分比：初始化0
+int totalVictorys=0;					//累胜局数：初始化0
+int selfBSStatus=0;						//压大小状态：0初始化，1大，2小
+int selfSDStatus=0;						//压单双状态：0初始化，1单，2双
+int myBS=0;								//我压的大小：0初始化，1大，2小
+int mySD=0;								//我压的单双：0初始化，1单，2双
 int gameType=0;                         //游戏类型：0默认，1压大小，2压单双
 int runType=0;                          //投注方式：0自动，1手动输入，2根据策略自动投注
-double initMoney=5000;			      			//本金：初始0
-double totalMoney=5000;			        		//总资金：初始0
-double stepMoney=0;					          	//单局盈亏：初始0
-double stepDrop=0;					          	//单局投注：初始0
-double lastDrop=0;				          		//缓存上一局投注金额
-double meanMoney=0;				          		//平均每局盈亏：初始0
-double meanDrop=0;			          			//平均每局投注：初始0
+double initMoney=5000;						//本金：初始0
+double totalMoney=5000;					//总资金：初始0
+double stepMoney=0;						//单局盈亏：初始0
+double stepDrop=0;						//单局投注：初始0
+double lastDrop=0;						//缓存上一局投注金额
+double meanMoney=0;						//平均每局盈亏：初始0
+double meanDrop=0;						//平均每局投注：初始0
 
 //初始化字符串数组
 char * strOne[]={"自动","手动"};
